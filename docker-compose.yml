@@ -1,0 +1,13 @@
+version: "3"
+services:
+  server:
+    #build: .
+    image: ghcr.io/minetaro12/samba:latest
+    ports:
+      - "445:445"
+    restart: always
+    env_file:
+      - secrets.env
+    volumes:
+      - ./share:/share
+      - ./config/smb.conf:/etc/samba/smb.conf:ro
