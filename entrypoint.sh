@@ -9,7 +9,7 @@ if [ $? -ne 0 ]; then
   echo -e "$PASSWORD\n$PASSWORD" | pdbedit -t -a "$USERNAME"
 fi
 
-#chown -R "$USERNAME":"$USERNAME" /share
+chown "$USERNAME":"$USERNAME" /share
 
 # start samba
 exec smbd --foreground --no-process-group --debug-stdout
